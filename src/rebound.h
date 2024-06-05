@@ -1096,7 +1096,7 @@ DLLEXPORT struct reb_particle reb_particle_derivative_m_f(double G, struct reb_p
 DLLEXPORT struct reb_rotation reb_rotation_inverse(const struct reb_rotation q);
 DLLEXPORT struct reb_rotation reb_rotation_mul(const struct reb_rotation p, const struct reb_rotation q);
 
-DLLEXPORT struct reb_rotation reb_rotation_identity();
+DLLEXPORT struct reb_rotation reb_rotation_identity(void);
 DLLEXPORT struct reb_rotation reb_rotation_normalize(const struct reb_rotation q);
 DLLEXPORT struct reb_rotation reb_rotation_conjugate(const struct reb_rotation q);
 DLLEXPORT struct reb_rotation reb_rotation_init_angle_axis(const double angle, struct reb_vec3d axis);
@@ -1272,7 +1272,7 @@ struct reb_display_data {
 DLLEXPORT void reb_simulation_add_display_settings(struct reb_simulation* r);
 
 // Matrix methods
-DLLEXPORT struct reb_mat4df reb_mat4df_identity();
+DLLEXPORT struct reb_mat4df reb_mat4df_identity(void);
 DLLEXPORT struct reb_mat4df reb_mat4df_scale(struct reb_mat4df m, float x, float y, float z);
 DLLEXPORT void reb_mat4df_print(struct reb_mat4df m);
 DLLEXPORT int reb_mat4df_eq(struct reb_mat4df A, struct reb_mat4df B);
@@ -1349,8 +1349,8 @@ DLLEXPORT void reb_simulation_init(struct reb_simulation* r); // Used internally
 DLLEXPORT void reb_simulation_update_acceleration(struct reb_simulation* r); // Used by REBOUNDx
 DLLEXPORT void reb_simulation_update_tree(struct reb_simulation* const r);
 DLLEXPORT int reb_simulation_get_next_message(struct reb_simulation* const r, char* const buf); // Get the next stored warning message. Used only if save_messages==1. Return value is 0 if no messages are present, 1 otherwise.
-DLLEXPORT int reb_check_fp_contract(); // Returns 1 if floating point contraction are enabled. 0 otherwise.
-DLLEXPORT size_t reb_simulation_struct_size();
+DLLEXPORT int reb_check_fp_contract(void); // Returns 1 if floating point contraction are enabled. 0 otherwise.
+DLLEXPORT size_t reb_simulation_struct_size(void);
 DLLEXPORT char* reb_simulation_diff_char(struct reb_simulation* r1, struct reb_simulation* r2); // Return the difference between two simulations as a human readable difference. Returned pointer needs to be freed.
 DLLEXPORT void reb_simulation_set_collision_resolve(struct reb_simulation* r, int (*resolve) (struct reb_simulation* const r, struct reb_collision c)); // Used from python 
 DLLEXPORT void reb_simulation_get_serialized_particle_data(struct reb_simulation* r, uint32_t* hash, double* m, double* radius, double (*xyz)[3], double (*vxvyvz)[3], double (*xyzvxvyvz)[6]); // NULL pointers will not be set.

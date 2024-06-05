@@ -47,7 +47,7 @@ void reb_tools_megno_update(struct reb_simulation* r, double dY);
 /**
  * @brief Init random number generator based on time and process id.
  */
-unsigned int reb_tools_get_rand_seed();
+unsigned int reb_tools_get_rand_seed(void);
 
 /**
  * @brief Convert angles for orbit routines
